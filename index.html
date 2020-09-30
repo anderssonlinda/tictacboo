@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Tic Tac Toe</h1>
+    <main>
+        <div class = "sign-wrapper">
+            <div class="info sign">
+                <p class="display-round">Round: 1</p>
+                <p class="display-winner"></p>
+            </div>
+            <div class="pole"></div>
+        </div>
+        <div class='building'>
+            <div class="window">
+                <img data-position="1" src="https://www.flaticon.com/svg/static/icons/svg/61/61631.svg" alt="">
+            </div>
+            <div class="window">
+                <img data-position="2" src="https://www.flaticon.com/svg/static/icons/svg/1519/1519295.svg" alt="">
+            </div>
+            <div class="window">
+                <img data-position="3" src="https://www.flaticon.com/svg/static/icons/svg/150/150059.svg" alt="">
+            </div>
+            <div class="window">
+                <img  data-position="4"src="https://www.flaticon.com/svg/static/icons/svg/91/91454.svg" alt="">
+            </div>
+            <div class="window">
+                <img data-position="5" src="https://www.flaticon.com/svg/static/icons/svg/2485/2485796.svg" alt="">
+            </div>
+            <div class="window">
+                <img data-position="6"src="https://www.flaticon.com/svg/static/icons/svg/1933/1933607.svg" alt="">
+            </div>
+            <div class="window">
+                <img data-position="7" src="https://www.flaticon.com/svg/static/icons/svg/61/61863.svg" alt="">
+            </div>
+            <div class="window">
+                <img data-position="8" src="https://www.flaticon.com/svg/static/icons/svg/61/61642.svg" alt="">
+            </div>
+            <div class="window">
+                <img data-position="9" src="https://www.flaticon.com/svg/static/icons/svg/1933/1933233.svg" alt="">
+            </div>
+            <div></div><!--  to center newGame in grid -->
+            <div class="newGame">
+                <p>New Game</p>
+            </div>
+        </div>
+        <div class="sign-wrapper">
+            <div class="score sign">
+                <div>
+                    <div class = "colourPlayer1"></div>
+                    <p class = "name-player1" contenteditable="true">Player 1</p>
+                    <p class="score-player1">Score: 0</p>
+                </div>
+                <div>
+                    <div class = "colourPlayer2"></div>
+                    <p class="name-player2" contenteditable="true">Player 2</p>
+                    <p class="score-player2">Score: 0</p>
+                </div>
+            </div>
+            <div class="pole"></div>
+        </div>      
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

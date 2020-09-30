@@ -1,0 +1,123 @@
+* {
+    box-sizing: border-box;
+}
+html {
+    height: 100%;
+}
+body{
+    /* background-color: #00157F; */
+    /* background: rgb(135,32,135);
+    background: linear-gradient(0deg, rgba(135,32,135,1) 0%, rgba(49,53,130,1) 54%); */
+    background: rgb(120,35,0);
+    background: linear-gradient(0deg, rgba(120,35,0,1) 0%, #000A68 10%);
+    
+    margin: 0;
+    font-family: 'Creepster', cursive;
+}
+main {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    position: fixed;
+    bottom: 0;
+    
+}
+h1 {
+    text-align: center;
+    font-size: 75px;
+}
+.building {
+    height: 600px;
+    width: 400px;
+    background-color: #000149;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0 auto;
+}
+.window {
+    height: 100px;
+    width: 70px;
+    background-color: #000;
+    margin: auto;
+    cursor: pointer;
+    border: 1px solid #000;
+}
+.window img{
+    height: 100%;
+    width: 70px;
+    box-shadow: inset 0 0 10px #000000;
+    transition: 0.5s;
+}
+.player1Light {
+    background-color: #FFCD2E;
+}
+.player2Light {
+    background-color: #FF7601;
+}
+.newGame {
+    height: 100%;
+    width: 70px;
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    margin: auto;
+    border: 1px solid #000;
+    border-bottom: none;
+    background-color: black;
+}
+.newGame p{
+    margin-top: 20px;
+}
+.sign {
+    height: 100px;
+    width: 200px;
+    background:#000149;
+    margin: auto;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+.pole {
+    height: 100px;
+    width: 10px;
+    background: #000149;
+    margin: 0 auto;
+    background: rgb(0,1,73);
+    background: linear-gradient(90deg, rgba(0,1,73,1) 0%, rgba(16,17,99,1) 50%, rgba(0,1,73,1) 100%);
+}
+.sign-wrapper {
+    margin-top: 400px;
+}
+.info {
+    padding-top: 5px;
+}
+.info p {
+    margin: 0;
+    padding: 5px;
+}
+.score {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.score > div {
+    margin-top: 10px;
+}
+.score p{
+    margin: 10px;
+
+}
+.colourPlayer1 {
+    background-color: #FFCD2E;
+    height: 18px;
+    width: 18px;
+    margin: auto;
+    border-radius: 50%;
+}
+.colourPlayer2 {
+    background-color: #FF7601;
+    height: 18px;
+    width: 18px;
+    margin: auto;
+    border-radius: 50%;
+ }
