@@ -5,35 +5,47 @@ html {
     height: 100%;
 }
 body{
-    /* background-color: #00157F; */
-    /* background: rgb(135,32,135);
-    background: linear-gradient(0deg, rgba(135,32,135,1) 0%, rgba(49,53,130,1) 54%); */
-    background: rgb(120,35,0);
-    background: linear-gradient(0deg, rgba(120,35,0,1) 0%, #000A68 10%);
-    
+    background: rgba(43,61,146,1);
+    background: radial-gradient(at top left, rgba(204,81,198,1) 0%, rgba(100,54,168,1) 37%, rgba(43,61,146,1) 100%);
     margin: 0;
     font-family: 'Creepster', cursive;
+    
 }
-main {
+.container {
+    display: flex;
+    justify-content: center;
+}
+.game-wrapper {
     width: 100%;
     display: grid;
     justify-content: center;
     grid-template-columns: 1fr 1fr 1fr;
     position: fixed;
     bottom: 0;
-    
+    max-width: 1000px;
 }
 h1 {
+    margin: 15px 0 0 0;
     text-align: center;
     font-size: 75px;
+    padding: 0;
+    line-height:70px;
 }
+
 .building {
-    height: 600px;
+    height: 685px;
     width: 400px;
-    background-color: #000149;
+    /* background-color: #2d2d2d; */
+    background: rgb(96,96,96);
+    background: linear-gradient(132deg, rgba(93,93,93,1) 0%, rgba(38,38,38,1) 60%);
+    margin: 0 auto;
+}
+.windows-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin: 0 auto;
+    height: 600px;
+    width: 400px;
 }
 .window {
     height: 100px;
@@ -41,19 +53,34 @@ h1 {
     background-color: #000;
     margin: auto;
     cursor: pointer;
-    border: 1px solid #000;
-}
+    /* border: 1px solid #000;*/
+    border-radius: 50px 50px 0 0;
+} 
 .window img{
     height: 100%;
     width: 70px;
     box-shadow: inset 0 0 10px #000000;
     transition: 0.5s;
+    border-radius: 50px 50px 0 0;
 }
 .player1Light {
     background-color: #FFCD2E;
+    
+}
+.greenLight {
+    background-color: #4DE94C;
+}
+.purpleLight {
+    background-color: #6F0A82;
 }
 .player2Light {
     background-color: #FF7601;
+}
+.magentaLight {
+    background-color: #3783FF;
+}
+.redLight {
+    background-color: #F60000;
 }
 .newGame {
     height: 100%;
@@ -65,49 +92,62 @@ h1 {
     border: 1px solid #000;
     border-bottom: none;
     background-color: black;
+    border-radius: 50px 50px 0 0;
 }
 .newGame p{
-    margin-top: 20px;
+    margin: 0px;
+    padding-top: 25px;
+    letter-spacing: 2px;
+    font-size: 22px;
 }
 .sign {
     height: 100px;
     width: 200px;
-    background:#000149;
+    letter-spacing: 2px;
     margin: auto;
     text-align: center;
     color: white;
     font-size: 20px;
-}
-.pole {
-    height: 100px;
-    width: 10px;
-    background: #000149;
-    margin: 0 auto;
-    background: rgb(0,1,73);
-    background: linear-gradient(90deg, rgba(0,1,73,1) 0%, rgba(16,17,99,1) 50%, rgba(0,1,73,1) 100%);
-}
-.sign-wrapper {
-    margin-top: 400px;
+    
 }
 .info {
-    padding-top: 5px;
+    margin-top: 515px;
+    padding-top: 30px;
+    height: 170px;
+    width: 150px;
+    border-radius: 100px 100px 0 0;
+    background-color: #2d2d2d;
+    font-size: 22px;
+    box-shadow: 3px 0 rgba(0,0,0,0.7);
+    
 }
 .info p {
     margin: 0;
-    padding: 5px;
+    padding: 8px;
 }
 .score {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 525px;
 }
 .score > div {
     margin-top: 10px;
 }
 .score p{
-    margin: 10px;
-
+    margin: 8px;
+}
+.player1-score-sign, .player2-score-sign{
+    background-color: #2d2d2d;
+    border-radius: 50px 50px 0 0;
+    height: 150px;
+    padding-top: 25px;
+    box-shadow: 3px 0 rgba(0,0,0,0.7);
+    
 }
 .colourPlayer1 {
+    box-shadow: inset 0 0 2px #000000;
+    cursor: pointer;
     background-color: #FFCD2E;
     height: 18px;
     width: 18px;
@@ -115,9 +155,101 @@ h1 {
     border-radius: 50%;
 }
 .colourPlayer2 {
+    box-shadow: inset 0 0 2px #000000;
+    cursor: pointer;
     background-color: #FF7601;
     height: 18px;
     width: 18px;
     margin: auto;
     border-radius: 50%;
  }
+ .ghost {
+    position: fixed;
+    height: 400px;
+    bottom: 18%;
+    animation: fadeIn ease 5s;
+ }
+ .fadeOut {
+    animation: fadeOut ease 2s;
+ }
+ @keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  @keyframes fadeOut {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+ .cat {
+    margin: 0 auto;
+    height: 50%;
+    margin-top: 50%;
+
+ }
+ .moon {
+    margin-top: 30px;
+    margin-left: 30px;
+    height: 300px;
+ }
+
+ @media screen and (max-width: 667px) {
+    .body {
+        width: 100%;
+    }
+    .building {
+        height: 500px;
+        width: 100%;
+    }
+    .game-wrapper {
+        width: 350px;
+        grid-template-columns: 1fr;       
+    }
+    .windows-wrapper {
+        height: 452px;
+        width: 80%;
+    }
+    .window img{
+        width: 50px;
+    }
+    .window {
+        height: 70px;
+        width: 50px;
+    } 
+    h1 {
+        font-size: 35px;
+        padding: 10px 0 0 0;
+        line-height: 35px;
+    }
+    .sign {
+        width: 30px;
+        letter-spacing: 2px;
+        font-size: 14px;
+    }
+    .info {
+        width: 100px;
+        position: fixed;
+        left:15px;
+        height: 120px;
+        bottom: 0px;
+    }
+    .score {
+        position: fixed;
+        right: 105px;
+        bottom: 30px;
+    }
+    .player1-score-sign, .player2-score-sign{
+        height: 120px;
+        padding-top: 10px;  
+    }
+    .moon {
+        height: 200px;
+    }
+  }

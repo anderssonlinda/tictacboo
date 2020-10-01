@@ -1,5 +1,9 @@
+var body = document.querySelector('body');
 var windows = document.querySelectorAll('.window img');
 var newGameBtn = document.querySelector('.newGame');
+var ghost = document.querySelector('.ghost');
+var colourPlayer1 = document.querySelector('.colourPlayer1');
+var colourPlayer2 = document.querySelector('.colourPlayer2');
 var namePlayer1 = document.querySelector('.name-player1');
 var namePlayer2 = document.querySelector('.name-player2');
 var displayPlayer1Score = document.querySelector('.score-player1');
@@ -24,14 +28,28 @@ var turn = 0;
 var round = 1;
 
 function displayToken(event) {
+    hideGhost()
     if(turn %2 == 0){
         event.target.removeEventListener('click', displayToken);
-        event.target.classList.add('player1Light');
+        if(player1ColourOption == 0){
+            event.target.classList.add('player1Light');
+        } else if (player1ColourOption == 1) {
+            event.target.classList.add('greenLight');
+        } else if (player1ColourOption == 2) {
+            event.target.classList.add('purpleLight');
+        }
         player1Values.push(Number(event.target.dataset.position));
         turn++;
         isItAWin(player1Values);
         isItADraw()
     } else {
+        if(player2ColourOption == 0){
+            event.target.classList.add('player1Light');
+        } else if (player2ColourOption == 1) {
+            event.target.classList.add('magentaLight');
+        } else if (player2ColourOption == 2) {
+            event.target.classList.add('redLight');
+        }
         event.target.classList.add('player2Light');
         event.target.removeEventListener('click', displayToken);
         player2Values.push(Number(event.target.dataset.position));
@@ -39,6 +57,8 @@ function displayToken(event) {
         isItAWin(player2Values);
         isItADraw()
     }
+    colourPlayer1.removeEventListener('click', changePlayerColour);
+    colourPlayer2.removeEventListener('click', changePlayerColour);
 }
 
 function isItAWin(playerValues) {
@@ -66,7 +86,7 @@ function isItAWin(playerValues) {
 }
 
 function isItADraw() {
-    if(round == 9){
+    if(turn == 9){
         displayWinner.textContent = `It's a draw!`;
         freezeGame()
     }
@@ -81,8 +101,8 @@ function freezeGame() {
 function newGame() {
     for(var i = 0; i < windows.length; i++){
         windows[i].addEventListener('click', displayToken);
-        windows[i].classList.remove('player1Light');
-        windows[i].classList.remove('player2Light');
+        windows[i].classList.remove('player1Light', 'greenLight', 'purpleLight');
+        windows[i].classList.remove('player2Light', 'magentaLight', 'redLight');
     }
     round++
     turn = 0;
@@ -90,6 +110,43 @@ function newGame() {
     player2Values = [];
     displayRound.textContent = `Round: ${round}`
     displayWinner.textContent = '';
+    colourPlayer1.addEventListener('click', changePlayerColour);
+    colourPlayer2.addEventListener('click', changePlayerColour);
+}
+
+function hideGhost() {
+    ghost.classList.add('fadeOut');
+    ghost.style.opacity = 0;
+}
+
+var player1ColourOption = 0;
+var player2ColourOption = 0;
+function changePlayerColour(event) {
+    if(event.target == colourPlayer1){
+        player1ColourOption++;
+        if (player1ColourOption == 1){
+            event.target.style.backgroundColor = '#4DE94C';
+        } else if (player1ColourOption == 2){
+            event.target.style.backgroundColor = '#6F0A82';
+        } else if (player1ColourOption == 3){
+            player1ColourOption = 0;
+        }
+        if(player1ColourOption == 0) {
+            colourPlayer1.style.background = '#FFCD2E';
+        }
+    } else if(event.target == colourPlayer2) {
+        player2ColourOption++;
+        if (player2ColourOption == 1){
+            event.target.style.backgroundColor = '#3783FF';
+        } else if (player2ColourOption == 2){
+            event.target.style.backgroundColor = '#F60000';
+        } else if (player2ColourOption == 3){
+            player2ColourOption = 0;
+        }
+        if(player2ColourOption == 0) {
+            colourPlayer2.style.background = '#FF7601';
+        }
+    }
 }
 
 for(var i = 0; i < windows.length; i++){
@@ -97,3 +154,6 @@ for(var i = 0; i < windows.length; i++){
 }
 
 newGameBtn.addEventListener('click', newGame);
+ghost.addEventListener('click', hideGhost);
+colourPlayer1.addEventListener('click', changePlayerColour);
+colourPlayer2.addEventListener('click', changePlayerColour);
