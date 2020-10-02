@@ -48,6 +48,9 @@ I’ve started making it functional for small screens but it needs improvement. 
 -	Make player customisation more intuitive 
 I added the instruction ghost to tell the players where they can customise their name and colour but I would like to make this more intuitive so the ghost is not needed. 
 
+- Secure design for different browsers
+So far the game has only been tested on Chrome so I need to test it on the most common browsers and adjust styling/add fallback accordingly. Same goes for mobile devises as it so far has only been tested on Iphone 8(Safari).
+
 ## Lessons 
 
 It would’ve been wise to plan for the small screen version when constructing the big screen version to make the transition between the two as smooth as possible. 
