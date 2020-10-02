@@ -249,6 +249,12 @@ h1 {
         height: 120px;
         padding-top: 10px;  
     }
+    .cat {
+        display: none;
+    }
+    .ghost {
+        display: none;
+    }
     .moon {
         height: 200px;
     }

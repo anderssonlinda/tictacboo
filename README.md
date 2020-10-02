@@ -1,5 +1,5 @@
 # Tic Tac Boo
-!(https://i.imgur.com/BW59cnH.png)
+![screen shot of the game](https://i.imgur.com/BW59cnH.png)
 Tic Tac Boo is a spookier version of the popular game, Tic Tac Toe.
 [Click here to play, if you dare!](https://anderssonlinda.github.io/tictacboo/)
 ## How to play
