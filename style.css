@@ -257,3 +257,12 @@ h1 {
         height: 200px;
     }
   }
+
+  @media screen and (max-width: 320px){
+    .score {
+        position: fixed;
+        right: 90px;
+        bottom: 30px;
+        gap: 1px;
+    }
+  }
