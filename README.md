@@ -1,5 +1,6 @@
 # Tic Tac Boo
 ![screen shot of the game](https://i.imgur.com/BW59cnH.png)
+
 Tic Tac Boo is a spookier version of the popular game, Tic Tac Toe.
 [Click here to play, if you dare!](https://anderssonlinda.github.io/tictacboo/)
 ## How to play
@@ -51,4 +52,4 @@ I added the instruction ghost to tell the players where they can customise their
 
 It would’ve been wise to plan for the small screen version when constructing the big screen version to make the transition between the two as smooth as possible. 
 
-The importance of readable code became very obvious when I started to add more features and styling. Being able to clearly understand what code does or what it targets saves so much time and makes the work flow run a lot smoother. 
+The importance of readable code became very obvious when I started to add more features and styling. Being able to clearly understand what code does or what it targets saves so much time and makes the work flow run a lot smoother.
