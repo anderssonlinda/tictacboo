@@ -1,7 +1,7 @@
 # Tic Tac Boo
 
 Tic Tac Boo is a spookier version of the popular game, Tic Tac Toe.
-
+[Click here to play, if you dare!](https://anderssonlinda.github.io/tictacboo/)
 ## How to play
 
 Tic Tac Toe is traditionally played on a 3 x 3 grid and with circles and crosses for tokens. The game takes two players who takes turns to choose where to place their token. The first player to have three tokens in a row, vertically, horizontally or diagonally. 
