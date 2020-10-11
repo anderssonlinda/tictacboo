@@ -9,7 +9,7 @@ var namePlayer2 = document.querySelector('.name-player2');
 var displayPlayer1Score = document.querySelector('.score-player1');
 var displayPlayer2Score = document.querySelector('.score-player2');
 var displayRound = document.querySelector('.display-round');
-var displayWinner = document.querySelector('.display-winner');
+var displayMessage = document.querySelector('.display-winner');
 var player1Values = [];
 var player2Values = [];
 var player1Score = 0;
@@ -27,10 +27,11 @@ var winningCombinations = [
 var turn = 0;
 var round = 1;
 
+displayMessage.textContent = `${namePlayer1.textContent} make your move`;
+
 function displayToken(event) {
     hideGhost()
     if(turn %2 == 0){
-        event.target.removeEventListener('click', displayToken);
         if(player1ColourOption == 0){
             event.target.classList.add('player1Light');
         } else if (player1ColourOption == 1) {
@@ -40,20 +41,30 @@ function displayToken(event) {
         }
         player1Values.push(Number(event.target.dataset.position));
         turn++;
+
+        displayMessage.textContent = `${namePlayer2.textContent} make your move`;
+
+        event.target.removeEventListener('click', displayToken);
+        event.target.removeEventListener('keypress', enterKey);
+
         isItAWin(player1Values);
         isItADraw()
     } else {
         if(player2ColourOption == 0){
-            event.target.classList.add('player1Light');
+            event.target.classList.add('player2Light');
         } else if (player2ColourOption == 1) {
-            event.target.classList.add('magentaLight');
+            event.target.classList.add('blueLight');
         } else if (player2ColourOption == 2) {
             event.target.classList.add('redLight');
         }
-        event.target.classList.add('player2Light');
-        event.target.removeEventListener('click', displayToken);
         player2Values.push(Number(event.target.dataset.position));
         turn++;
+
+        displayMessage.textContent = `${namePlayer1.textContent} make your move`;
+
+        event.target.removeEventListener('click', displayToken);
+        event.target.removeEventListener('keypress', enterKey);
+
         isItAWin(player2Values);
         isItADraw()
     }
@@ -73,12 +84,12 @@ function isItAWin(playerValues) {
             if(turn % 2 == 0){
                 player2Score++;
                 displayPlayer2Score.textContent = `Score: ${player2Score}`;
-                displayWinner.textContent = `${namePlayer2.textContent} won this round!`;
+                displayMessage.textContent = `${namePlayer2.textContent} won this round!`;
                 freezeGame()
             } else {
                 player1Score++;
                 displayPlayer1Score.textContent = `Score: ${player1Score}`;
-                displayWinner.textContent = `${namePlayer1.textContent} won this round!`;
+                displayMessage.textContent = `${namePlayer1.textContent} won this round!`;
                 freezeGame()
             }
         } 
@@ -87,7 +98,7 @@ function isItAWin(playerValues) {
 
 function isItADraw() {
     if(turn == 9){
-        displayWinner.textContent = `It's a draw!`;
+        displayMessage.textContent = `It's a draw!`;
         freezeGame()
     }
 }
@@ -109,7 +120,7 @@ function newGame() {
     player1Values = [];
     player2Values = [];
     displayRound.textContent = `Round: ${round}`
-    displayWinner.textContent = '';
+    displayMessage.textContent = '';
     colourPlayer1.addEventListener('click', changePlayerColour);
     colourPlayer2.addEventListener('click', changePlayerColour);
 }
@@ -121,6 +132,7 @@ function hideGhost() {
 
 var player1ColourOption = 0;
 var player2ColourOption = 0;
+
 function changePlayerColour(event) {
     if(event.target == colourPlayer1){
         player1ColourOption++;
@@ -149,11 +161,25 @@ function changePlayerColour(event) {
     }
 }
 
+function enterKey(e) {
+    if (e.key == 'Enter') {
+        displayToken(e)
+    } 
+}
+
+
 for(var i = 0; i < windows.length; i++){
+    windows[i].addEventListener('keypress', enterKey);
     windows[i].addEventListener('click', displayToken);
 }
 
 newGameBtn.addEventListener('click', newGame);
-ghost.addEventListener('click', hideGhost);
+newGameBtn.addEventListener('keypress', function (e) {
+    if (e.key == 'Enter') {
+        newGame()
+    }
+})
+
 colourPlayer1.addEventListener('click', changePlayerColour);
 colourPlayer2.addEventListener('click', changePlayerColour);
+ghost.addEventListener('click', hideGhost);
