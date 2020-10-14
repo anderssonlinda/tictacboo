@@ -106,6 +106,7 @@ function isItADraw() {
 function freezeGame() {
     for(var i = 0; i < windows.length; i++){
         windows[i].removeEventListener('click', displayToken);
+        windows[i].removeEventListener('keypress', enterKey);
     }
 }
 
