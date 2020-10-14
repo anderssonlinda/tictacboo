@@ -112,6 +112,7 @@ function freezeGame() {
 function newGame() {
     for(var i = 0; i < windows.length; i++){
         windows[i].addEventListener('click', displayToken);
+        windows[i].addEventListener('keypress', enterKey);
         windows[i].classList.remove('player1Light', 'greenLight', 'purpleLight');
         windows[i].classList.remove('player2Light', 'magentaLight', 'redLight');
     }
