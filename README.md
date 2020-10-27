@@ -25,16 +25,16 @@ I stared of with making a very basic model of the game by placing nine divs with
 ## Problems 
 
 ### Fixed problems 
--	How to freeze game 
-When a player had a winning combination the players could still click on the windows which could mean there would be two winners so I solved that by removing the event listeners on all the windows when one of the players got three in a row. 
+-	How to freeze game  
+When a player had a winning combination, the players could still click on the windows which could mean there would be two winners so I solved that by removing the event listeners on all the windows when one of the players got three in a row. 
 
--	Clicking same window twice 
+-	Clicking same window twice  
 Player 2 could click the same window that player 1 had already chosen, I solved this by removing the event listener on the window after it had been clicked the first time. 
 
--	Fade out the instruction ghost 
+-	Fade out the instruction ghost  
 I wanted the ghost with instructions of how to customize the colour and/or name to fade out and stay hidden when clicked. I tried adding CSS animation and it would fade out but pop back in. Then I tried to hide the element but it would hide it before the fade out was completed so I thought of what would make the ghost stay transparent instead so with changing the opacity to 0 after the fade out instead of changing visibility created the effect I was after. 
 
--	Background gradient
+-	Background gradient 
 I used CSS positioning to fix the building to the bottom of the page but then it wouldn’t let me make the gradient background on the body element. I solved this by making giving the HTML element a height of 100% which then allowed me to use a gradient as background on the body element. 
 
 -	Centre the game in the browser  
@@ -42,13 +42,13 @@ I centred the game but there was too much spacing in between the element when th
 
 ### Problems to solve 
 
--	Improve design for mobile
+-	Improve design for mobile  
 I’ve started making it functional for small screens but it needs improvement. It looks ok for most small screens but not all. Where the players choose colour and name is too small for touch screen so I would like to add a solution for that.
 
--	Make player customisation more intuitive 
+-	Make player customisation more intuitive  
 I added the instruction ghost to tell the players where they can customise their name and colour but I would like to make this more intuitive so the ghost is not needed. 
 
-- Secure design for different browsers
+- Secure design for different browsers  
 So far the game has only been tested on Chrome so I need to test it on the most common browsers and adjust styling/add fallback accordingly. Same goes for mobile devises as it so far has only been tested on Iphone 8(Safari).
 
 ## Lessons 
